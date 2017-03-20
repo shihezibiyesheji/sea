@@ -9,6 +9,32 @@
 		<script src="js/npm.js"></script>
 		<link href="css/bootstrap-theme.css" rel="stylesheet" />
 		<link href="css/bootstrap.css" rel="stylesheet" />
+
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600,200italic,600italic&subset=latin,vietnamese' rel='stylesheet' type='text/css'>
+
+		<script src="http://phuonghuynh.github.io/js/bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="http://phuonghuynh.github.io/js/bower_components/d3/d3.min.js"></script>
+		<script src="http://phuonghuynh.github.io/js/bower_components/d3-transform/src/d3-transform.js"></script>
+		<script src="http://phuonghuynh.github.io/js/bower_components/cafej/src/extarray.js"></script>
+		<script src="http://phuonghuynh.github.io/js/bower_components/cafej/src/misc.js"></script>
+		<script src="http://phuonghuynh.github.io/js/bower_components/cafej/src/micro-observer.js"></script>
+		<script src="http://phuonghuynh.github.io/js/bower_components/microplugin/src/microplugin.js"></script>
+		<script src="http://phuonghuynh.github.io/js/bower_components/bubble-chart/src/bubble-chart.js"></script>
+		<script src="http://phuonghuynh.github.io/js/bower_components/bubble-chart/src/plugins/central-click/central-click.js"></script>
+		<script src="http://phuonghuynh.github.io/js/bower_components/bubble-chart/src/plugins/lines/lines.js"></script>
+		<script src="js/index.js"></script>
+
+		<style>
+			.bubbleChart {
+				min-width: 100px;
+				max-width: 700px;
+				height: 700px;
+				margin: 0 auto;
+			}
+			.bubbleChart svg {
+				background: #F2F2F2;
+			}
+		</style>
 		<style type="text/css">
 			* {
 				margin: 0;
@@ -159,9 +185,11 @@
 				<br />
 				<br />
 				<br />
-				<div style="height: 300px;background-color: antiquewhite;margin: auto;">
-					<div style="width: 300px;margin: auto;" }>
-						<p style="font-size: 20px;font-weight: bold;line-height: 300px;">这里将会有个比较炫的东西</p>
+				<div style="min-height: 300px;background-color: antiquewhite;margin: auto;">
+					<div style="width: 1200px;margin: auto;" }>
+						<div style="background: #F2F2F2">
+							<div class="bubbleChart" />
+						</div>
 					</div>
 				</div>
 			</div>
