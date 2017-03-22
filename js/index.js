@@ -50,7 +50,7 @@ $(document).ready(function() {
 		plugins: [{
 			name: "central-click",
 			options: {
-				text: "(See more detail)",
+				text: "(查看详情)",
 				style: {
 					"font-size": "12px",
 					"font-style": "italic",
@@ -63,7 +63,7 @@ $(document).ready(function() {
 					dy: "65px"
 				},
 				centralClick: function() {
-					alert("Here is more details!!");
+					alert("详情结果!");
 				}
 			}
 		}, {
