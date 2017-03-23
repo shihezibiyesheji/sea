@@ -38,6 +38,34 @@
 				id: '3',
 				value: '工程师'
 			}];
+
+			$scope.Result = [{
+				id: '1',
+				title: '我是测试标题1',
+				company: '华联超市1',
+				need: '1',
+				summary: '劳资！我是测试结果；我是测试结果；我是测试结果；我是测试结果；1'
+			}, {
+				id: '2',
+				title: '我是测试标题2',
+				company: '华联超市2',
+				need: '2',
+				summary: '会！我是测试结果；我是测试结果；我是测试结果；我是测试结果；我是测试结果；2'
+			}, {
+				id: '3',
+				title: '我是测试标题3',
+				company: '华联超市3',
+				need: '3',
+				summary: '遍历！我是测试结果；我是测试结果；我是测试结果；我是测试结果；我是测试结果；3'
+			},
+			{
+				id: '3',
+				title: '我是测试标题3',
+				company: '华联超市3',
+				need: '3',
+				summary: '数据！我是测试结果；我是测试结果；我是测试结果；我是测试结果；我是测试结果；3'
+			}];
+
 		});
 	</script>
 
@@ -79,7 +107,7 @@
 						</div>
 
 						<div class="col-lg-5">
-							<a href="SearchResult.html"> <button>测试按钮--搜索结果页</button></a>
+							<a href="SearchHome.html"> <button>测试按钮--返回首页</button></a>
 						</div>
 					</div>
 
@@ -97,11 +125,12 @@
 					<div class="col-lg-3">
 						<div class="input-group">
 							<input type="text" class="form-control" aria-label="..." placeholder="选择职位类别">
+
 							<div class="input-group-btn">
 								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></button>
 								<ul class="dropdown-menu dropdown-menu-right" ng-controller="copy">
 									<!--职位类别的显示-->
-									<li for="" ng-repeat="item in jobCategory"><a href="#">{{item.value}}&nbsp;</a></li>
+									<li for="" ng-repeat="item in jobCategory"><a href="#">{{item.value}}</a></li>
 									<!-- 这是搜索下拉框里的横线 横线下可放热门搜索 -->
 									<li role="separator" class="divider"></li>
 									<li><a href="#">老师</a></li>
@@ -216,12 +245,25 @@
 
 			<!-- 中间开始 -->
 
-			<div style="min-height: 300px;margin: auto;">
-				<div style="width: 1200px;margin: auto;" }>
-					<div style="background: #F2F2F2">
-						<div class="bubbleChart" />
+			<div style="min-height: 600px;width: 1200px; margin: auto;">
+
+				<!-- 单条结果开始 -->
+
+				<div ng-controller="copy">
+					<div style="height: 90px;width: 1000px; margin: auto;padding: 10px;border-bottom: solid 1px lightgrey" for="" ng-repeat="item in Result">
+
+						<p><a>{{item.title}}</a></p>
+						<div style="height: 40px;margin-left: 20px;">
+							<span>{{item.company}}<span>招({{item.need}})人</span></span>
+							<p>{{item.summary}}</p>
+						</div>
 					</div>
+
 				</div>
+
+				<!-- 单条结果结束 -->
+
+
 			</div>
 			<!-- 中间结束 -->
 
