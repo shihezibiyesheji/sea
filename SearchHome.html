@@ -61,6 +61,28 @@
 		.bubbleChart svg {
 			background: #F2F2F2;
 		}
+		
+		.promptStyle {
+			border: solid 1px lightgray;
+			width: 200px;
+			height: 150px;
+			visibility: hidden;
+			background-color: #F5FFFA;
+			position: absolute;
+			font-size: 13px;
+			color: slategray;
+		}
+		
+		.category {
+			float: left;
+			margin-right: 40px
+		}
+		
+		.select {
+			width: 80px;
+			height: 30px;
+			background-color: white
+		}
 	</style>
 </head>
 
@@ -74,7 +96,7 @@
 
 					<div class="row">
 						<div class="col-lg-1">
-							<p>搜索引擎</p>
+							<a href="SearchHome.html">搜索引擎</a>
 						</div>
 
 						<div class="col-lg-5">
@@ -96,121 +118,147 @@
 			<!--********************************-->
 			<div style='height: 120px;width: 1200px;margin: auto' }>
 
-				<!--第一个row开始 -->
-				<div class="row">
-					<div class="col-lg-1">
+				<script type="text/javascript">
+					//传入 event 对象
+					function ShowPrompt(objEvent) {
+						var divObj = document.getElementById("promptDiv");
+						divObj.style.visibility = "visible";
+
+						//使用这一行代码，提示层将出现在鼠标附近(如要使用，记得注释 divOjb.style.left = 60+5;  这一句)
+
+						//divObj.style.left = objEvent.clientX + 5;   //clientX 为鼠标在窗体中的 x 坐标值       
+						divObj.style.left = 60 + 5;
+						divObj.style.top = objEvent.clientY + 5;     //clientY 为鼠标在窗体中的 y 坐标值
+					}
+
+					//隐藏提示框
+
+					function HiddenPrompt() {
+						divObj = document.getElementById("promptDiv");
+						divObj.style.visibility = "hidden";
+					}
+
+					function Show_job(objEvent) {
+						var divObj = document.getElementById("category_job");
+						divObj.style.visibility = "visible";
+
+						//使用这一行代码，提示层将出现在鼠标附近(如要使用，记得注释 divOjb.style.left = 60+5;  这一句)
+
+						//divObj.style.left = objEvent.clientX + 5;   //clientX 为鼠标在窗体中的 x 坐标值       
+						divObj.style.left = 60 + 5;
+						divObj.style.top = objEvent.clientY + 5;     //clientY 为鼠标在窗体中的 y 坐标值
+					}
+
+					//隐藏提示框
+
+					function Hidden_job() {
+						divObj = document.getElementById("category_job");
+						divObj.style.visibility = "hidden";
+					}
+				</script>
+
+
+
+
+
+
+				<!-- 选择地点 滑框-->
+				<div class="category" style='margin-left: 100px'>
+					<div class="btn-group" role="group">
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+						 onmouseover="ShowPrompt(event)" onmouseout="HiddenPrompt()">
+     				 	地点
+      				<span class="caret"></span>
+    				</button>
 					</div>
 
-					<!-- 选择地点 -->
-					<div class="col-lg-1">
-						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">地点&nbsp;&nbsp;&nbsp;&nbsp;<span class="caret"></span></button>
-						<ul class="dropdown-menu dropdown-menu-right" ng-controller="copy">
-
-							<li for="" ng-repeat="item in jobCategory">
-								<a href="#">{{item.value}}&nbsp;</a>
-							</li>
-
-							<!-- 这是搜索下拉框里的横线 横线下可放热门搜索 -->
-							<li role="separator" class="divider"></li>
-							<li><a href="#">老师</a></li>
-						</ul>
-					</div>
-
-
-					<!-- 选择行业 -->
-					<div class="col-lg-1">
-						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">行业&nbsp;&nbsp;&nbsp;&nbsp;<span class="caret"></span></button>
-						<ul class="dropdown-menu dropdown-menu-right" ng-controller="copy">
-
-							<li for="" ng-repeat="item in jobCategory">
-								<a href="#">{{item.value}}&nbsp;</a>
-							</li>
-
-							<li role="separator" class="divider"></li>
-							<li><a href="#">老师</a></li>
-						</ul>
-					</div>
-
-					<!-- 选择薪资 -->
-					<div class="col-lg-1">
-						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">薪资&nbsp;&nbsp;&nbsp;&nbsp;<span class="caret"></span></button>
-						<ul class="dropdown-menu dropdown-menu-right" ng-controller="copy">
-
-							<li for="" ng-repeat="item in jobCategory">
-								<a href="#">{{item.value}}&nbsp;</a>
-							</li>
-
-							<li role="separator" class="divider"></li>
-							<li><a href="#">老师</a></li>
-						</ul>
-					</div>
-
-					<!-- 选择学历 -->
-					<div class="col-lg-1">
-						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">学历&nbsp;&nbsp;&nbsp;&nbsp;<span class="caret"></span></button>
-						<ul class="dropdown-menu dropdown-menu-right" ng-controller="copy">
-							<!--职位类别的显示-->
-							<li for="" ng-repeat="item in jobCategory">
-								<a href="#">{{item.value}}&nbsp;</a>
-							</li>
-							<!-- 这是搜索下拉框里的横线 横线下可放热门搜索 -->
-							<li role="separator" class="divider"></li>
-							<li><a href="#">老师</a></li>
-						</ul>
-					</div>
-
-					<!-- 选择工作经历 -->
-					<div class="col-lg-2">
-						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">工作经历&nbsp;&nbsp;&nbsp;&nbsp;<span class="caret"></span></button>
-						<ul class="dropdown-menu dropdown-menu-right" ng-controller="copy">
-							<!--职位类别的显示-->
-							<li for="" ng-repeat="item in jobCategory">
-								<a href="#">{{item.value}}&nbsp;</a>
-							</li>
-							<!-- 这是搜索下拉框里的横线 横线下可放热门搜索 -->
-							<li role="separator" class="divider"></li>
-							<li><a href="#">老师</a></li>
-						</ul>
-					</div>
-
-
-					<!-- 搜索 -->
-					<div class="col-lg-4">
-						<div class="input-group">
-							<input type="text" class="form-control" placeholder="请输入..." aria-describedby="basic-addon2">
-							<span class="input-group-addon" id="basic-addon2">搜索</span>
-						</div>
-					</div>
-				</div>
-				<!-- 第一个row结束 -->
-
-				<br/>
-				<br/>
-
-				<!-- 中间开始 -->
-				<div style="min-height: 300px;margin: auto;">
-					<div style="width: 1200px;margin: auto;" }>
-						<div style="background: #F2F2F2">
-							<div class="bubbleChart" />
-						</div>
-					</div>
-				</div>
-				<!-- 中间结束 -->
-
-
-				<!--描述：每个页面的脚部 **************-->
-				<div style="width: 1200px;height: 25px;margin: auto;padding:6px;">
-					<hr />
-					<div style='width: 180px;font-size: 14px;margin: auto;'>
+					<div id="promptDiv" class="promptStyle">
+						<p>热门城市</p>
 						<p>
-							<a href="https://user.qzone.qq.com/1031778303/infocenter?ptsig=6tGcnT*5hLdAql-GuoSgXYjnL9PwD5oz6i3yFS0ruqY_" style='color: #333399'>
+							<span>北京&nbsp;</span>
+							<span>上海&nbsp;</span>
+						</p>
+					</div>
+				</div>
+
+
+				<!-- 选择行业 滑框-->
+				<div class="category">
+					<div class="btn-group" role="group">
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+						 onmouseover="Show_job(event)" onmouseout="Hidden_job()">
+     				 	行业
+      				<span class="caret"></span>
+    				</button>
+					</div>
+
+					<div id="category_job" class="promptStyle">
+						<p>热门行业</p>
+						<p><span>教师&nbsp;</span><span>教师&nbsp;</span></p>
+					</div>
+				</div>
+
+				<!-- 选择薪资 -->
+				<div class="category">
+					<select class="select" ng-controller="copy">
+							<option value='default' selected = "selected">&nbsp;&nbsp;&nbsp;薪资 </option>
+  						<option value ="volvo" ng-repeat="item in jobCategory">{{item.value}}&nbsp;</option>
+						</select>
+				</div>
+
+
+				<!-- 选择学历 -->
+				<div class="category">
+					<select class="select" ng-controller="copy">
+							<option value='default' selected = "selected">&nbsp;&nbsp;&nbsp;学历 </option>
+  						<option value ="volvo" ng-repeat="item in jobCategory">{{item.value}}&nbsp;</option>
+						</select>
+				</div>
+
+				<!-- 选择工作经历 -->
+				<div class="category">
+					<select class="select" ng-controller="copy">
+							<option value='default' selected = "selected">工作经历 </option>
+  						<option value ="volvo" ng-repeat="item in jobCategory">{{item.value}}&nbsp;</option>
+						</select>
+				</div>
+
+
+				<!-- 搜索 -->
+				<div class="category" style='margin-left: 100px;width: 300px'>
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="请输入..." aria-describedby="basic-addon2">
+						<span class="input-group-addon" id="basic-addon2">搜索</span>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- 中间开始 -->
+			<div style="min-height: 300px;margin: auto;">
+				<div style="width: 1200px;margin: auto;" }>
+					<div style="background: #F2F2F2">
+						<div class="bubbleChart" />
+					</div>
+				</div>
+			</div>
+			<!-- 中间结束 -->
+
+
+			<!--描述：每个页面的脚部 **************-->
+			<div style="width: 1200px;height: 25px;margin: auto;padding:6px;">
+				<hr />
+				<div style='width: 180px;font-size: 14px;margin: auto;'>
+					<p>
+						<a href="https://user.qzone.qq.com/1031778303/infocenter?ptsig=6tGcnT*5hLdAql-GuoSgXYjnL9PwD5oz6i3yFS0ruqY_" style='color: #333399'>
 						@郭润和
 						</a> &nbsp;搜索引擎&nbsp;毕业设计
-						</p>️
-					</div>
+					</p>️
 				</div>
-				<!--********************************-->
-
 			</div>
+			<!--********************************-->
+
+		</div>
 </body>
+
 </html>

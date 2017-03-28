@@ -13,31 +13,31 @@ $(document).ready(function() {
 		//circleColor: use @default
 		data: {
 			items: [{
-				text: "教师",
+				text: "哈哈",
 				count: "236"
 			}, {
-				text: "找工作",
+				text: "哈哈",
 				count: "382"
 			}, {
-				text: "前端开发",
+				text: "哈哈",
 				count: "170"
 			}, {
-				text: "我想看日出",
+				text: "哈哈",
 				count: "123"
 			}, {
-				text: "带我出去玩",
+				text: "哈哈",
 				count: "12"
 			}, {
-				text: "正能量",
+				text: "哈哈",
 				count: "170"
 			}, {
-				text: "帮谁都能学到点什么",
+				text: "哈哈",
 				count: "382"
 			}, {
 				text: "水宝宝",
 				count: "10"
 			}, {
-				text: "加油",
+				text: "哈哈",
 				count: "170"
 			}, ],
 			eval: function(item) {

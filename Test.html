@@ -1,147 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-<head>
-	<title> hello,world</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<!--防止中文乱码 -->
-
-	<link href="css/bootstrap.css" rel="stylesheet" media="screen">
-	<link href="css/bootstrap-fileupload.css" rel="stylesheet" media="screen">
-
-	<script src="http://code.jquery.com/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/bootstrap-fileupload.js"></script>
-	<style>
-		.center {
-			width: auto;
-			display: table;
-			margin-top: 150px;
-			margin-left: auto;
-			margin-right: auto;
+<head runat="server">
+	<title>example of the mouse prompt</title>
+	<style type="text/css">
+		.divStyle {
+			border: solid 1px red;
+			width: 50px;
+			height: 50px;
 		}
 		
-		.text-center {
-			margin-top: 30px;
-			display: table;
-			margin-left: auto;
-			margin-right: auto;
-		}
-		
-		body {
-			margin: 0;
-			background: url('img/955.jpg');
-			background-size: 1440px 800px;
-			background-repeat: no-repeat;
-			display: compact;
-			background-color: transparent;
-		}
-		
-		.btn-large {
-			padding: 14px 34px;
+		.promptStyle {
+			border: dashed 1px blue;
+			width: 200px;
+			height: 150px;
+			visibility: hidden;
+			background-color: Yellow;
+			position: absolute;
 		}
 	</style>
 
 	<script type="text/javascript">
-		$(document).ready(function () {
-			$("#image_upload").hide();
+		//传入 event 对象
+		function ShowPrompt(objEvent) {
+			var divObj = document.getElementById("promptDiv");
+			divObj.style.visibility = "visible";
+
+			　　　//使用这一行代码，提示层将出现在鼠标附近(如要使用，记得注释 divOjb.style.left = 60+5;  这一句)
+
+			//divObj.style.left = objEvent.clientX + 5;   //clientX 为鼠标在窗体中的 x 坐标值       
+			divObj.style.left = 60 + 5;
+			divObj.style.top = objEvent.clientY + 5;     //clientY 为鼠标在窗体中的 y 坐标值
 		}
-		);
 
-		$('#text_only').click(function (e) {
-			$("#text_input").show();
-			$("#image_upload").hide();
-			e.stopPropagation();
+		　　//隐藏提示框
+
+		function HiddenPrompt() {
+			divObj = document.getElementById("promptDiv");
+			divObj.style.visibility = "hidden";
 		}
-		);
-		$('image_only').click(function () {
-			$("#text_input").hide();
-			$("#image_upload").show();
-		});
-
-		$('supervised').click(function () {
-			$("#text_input").show();
-			$("#image_upload").show();
-		}
-		);
-
-	</script>
-
-	<script type="text/javascript">
-
 	</script>
 
 </head>
 
 <body>
-	<h1>hello,world</h1>
-	<div class="container">
-		<div class="navbar">
-			<div class="navbar-inner">
-				<ul class="nav">
-					<li class="active">
-						<a href="#">首页</a>
-					</li>
+	<form id="form1">
 
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            单模态 <b class="caret"> </b> 
-            </a>
-						<ul class="dropdown-menu">
-							<li><a id="text_only" href="#">文本 </a> </li>
-							<li><a id="image_only" href="#">图像 </a> </li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            多模态  <b class="caret"> </b> 
-            </a>
-						<ul class="dropdown-menu">
-							<li><a id="supervised" href="#">有监督 </a> </li>
-							<li><a id="unsupervised" href="#">无监督 </a> </li>
-						</ul>
-					</li>
-				</ul>
+		<%--鼠标事件触发提示及隐藏提示框--%>
+			<div class="divStyle" onmouseover="ShowPrompt(event)" onmouseout="HiddenPrompt()">
+				div A
 			</div>
-		</div>
-		<!-- end of navbar -->
+			<br />
+			<br />
+			<div class="divStyle" onmouseover="ShowPrompt(event)" onmouseout="HiddenPrompt()">
+				div B
+			</div>
+			<br />
+			<br />
+			<div class="divStyle" onmouseover="ShowPrompt(event)" onmouseout="HiddenPrompt()">
+				div C
+			</div>
+			<br />
+			<br />
 
-		<div class="center">
-
-			<form class="form-vertical">
-				<fieldset>
-					<input id="text_input" type="text" class="input-xxlarge search-query" placeholder="Text input">
-
-					</br>
-
-					<div id="image_upload" class="fileupload fileupload-new text-center" data-provides="fileupload">
-						<!--  <input type="hidden" value="" name=""> -->
-						<div class="input-append">
-
-							<div class="uneditable-input span3">
-								<i class="icon-file fileupload-exists"></i>
-								<span class="fileupload-preview"></span>
-							</div>
-
-							<span class=" btn btn-file">
-                <span class="fileupload-new">Select file</span>
-							<span class="fileupload-exists">Change</span>
-							<input type="file" />
-							</span>
-							<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
-						</div>
-					</div>
-					<button type="submit" class="btn text-center btn-large btn-success"> Search </button>
-
-					</br>
-
-				</fieldset>
-			</form>
-
-		</div>
-	</div>
-
+			<%--提示框--%>
+				<div id="promptDiv" class="promptStyle">
+					This is prompt div.
+				</div>
+	</form>
 </body>
 
 </html>
