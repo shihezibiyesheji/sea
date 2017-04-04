@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>搜索引擎</title>
+	<!--jquery-->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+	<!--bootstrap-->
+	<link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+	<!--angular-->
+	<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600,200italic,600italic&subset=latin,vietnamese' rel='stylesheet'
+	 type='text/css'>
+
+	<!--d3-->
+	<script src="http://phuonghuynh.github.io/js/bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="http://phuonghuynh.github.io/js/bower_components/d3/d3.min.js"></script>
+	<script src="http://phuonghuynh.github.io/js/bower_components/d3-transform/src/d3-transform.js"></script>
+	<script src="http://phuonghuynh.github.io/js/bower_components/cafej/src/extarray.js"></script>
+	<script src="http://phuonghuynh.github.io/js/bower_components/cafej/src/misc.js"></script>
+	<script src="http://phuonghuynh.github.io/js/bower_components/cafej/src/micro-observer.js"></script>
+	<script src="http://phuonghuynh.github.io/js/bower_components/microplugin/src/microplugin.js"></script>
+	<script src="http://phuonghuynh.github.io/js/bower_components/bubble-chart/src/bubble-chart.js"></script>
+	<script src="http://phuonghuynh.github.io/js/bower_components/bubble-chart/src/plugins/central-click/central-click.js"></script>
+	<script src="http://phuonghuynh.github.io/js/bower_components/bubble-chart/src/plugins/lines/lines.js"></script>
+	<script src="js/index.js"></script>
+
+	<script>
+		var app = angular.module("myData", []);
+		app.controller('copy', function ($scope) {
+			$scope.jobCategory = [{
+				id: '1',
+				value: '教师'
+			}, {
+				id: '2',
+				value: '程序员'
+			}, {
+				id: '3',
+				value: '工程师'
+			}];
+		});
+	</script>
+
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		.bubbleChart {
+			min-width: 100px;
+			max-width: 700px;
+			height: 700px;
+			margin: 0 auto;
+		}
+		
+		.bubbleChart svg {
+			background: #F2F2F2;
+		}
+		
+		.promptStyle {
+			border: solid 1px lightgray;
+			width: 200px;
+			height: 150px;
+			visibility: hidden;
+			background-color: #F5FFFA;
+			position: absolute;
+			font-size: 13px;
+			color: slategray;
+		}
+		
+		.category {
+			float: left;
+			margin-right: 40px
+		}
+		
+		.select {
+			width: 80px;
+			height: 30px;
+			background-color: white
+		}
+	</style>
+</head>
+
+<body>
+
+	<div ng-app="myData">
+		<div>
+			<!--描述：每个页面的头部 ************-->
+			<br/>
+			<div>
+				<div style="width: 1200px;height: 25px;margin: auto;padding:6px;">
+
+					<div class="row">
+						<div class="col-lg-1">
+							<a href="SearchHome.html">搜索引擎</a>
+						</div>
+
+						<div class="col-lg-5">
+							<iframe width="450" scrolling="no" height="18" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=1&icon=1&wind=0&num=2"></iframe>
+						</div>
+
+						<div class="col-lg-3">
+							<a href="SearchHome.html"> <button>测试按钮--首页</button></a>
+						</div>
+
+						<div class="col-lg-3">
+							<a href="SearchResult.html"> <button>测试按钮--搜索结果页</button></a>
+						</div>
+
+					</div>
+				</div>
+				<hr />
+			</div>
+			<!--********************************-->
+
+			<div style='min-height: 800px;width: 1200px;margin: auto;' }>
+
+
+				<p>
+					&nbsp; &nbsp; &nbsp;
+					<span style="font-size: 20px">高薪诚聘丢丢同学 </span> &nbsp; &nbsp; &nbsp;
+					<span style="color: red;font-size: 14px">12000~30000元</span>
+				</p>
+
+				<hr/>
+
+				<div style="width: 1100px;margin: auto">
+					<p>
+						<span>招聘职务：程序员</span> &nbsp; &nbsp; &nbsp;
+						<span>工作年限：不限</span>
+					</p>
+
+					<p>福利：有妹子！有妹子！有妹子！</p>
+
+					<a>查看地图</a>
+				</div>
+
+				<hr/>
+
+				<div style="width: 1100px;margin: auto">
+					<p>公司告示：请勿重复投至简历，欢迎你的加入！<br/><br/>我们的宗旨是：成为优秀的团队！<br/>编不下去了。。。</p>
+
+				</div>
+
+
+
+
+
+			</div>
+
+			<!--描述：每个页面的脚部 **************-->
+			<div style="width: 1200px;height: 25px;margin: auto;padding:6px;">
+				<hr />
+				<div style='width: 180px;font-size: 14px;margin: auto;'>
+					<p>
+						<a href="https://user.qzone.qq.com/1031778303/infocenter?ptsig=6tGcnT*5hLdAql-GuoSgXYjnL9PwD5oz6i3yFS0ruqY_" style='color: #333399'>
+						@郭润和
+						</a> &nbsp;搜索引擎&nbsp;毕业设计
+					</p>️
+				</div>
+			</div>
+			<!--********************************-->
+
+		</div>
+</body>
+
+</html>
