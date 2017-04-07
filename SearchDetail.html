@@ -83,6 +83,16 @@
 			height: 30px;
 			background-color: white
 		}
+		
+		a {
+			text-decoration: none;
+		}
+		
+		.homefont {
+			font-style: oblique;
+			/*font-size: 20px;*/
+			font-weight: bold;
+		}
 	</style>
 </head>
 
@@ -90,33 +100,26 @@
 
 	<div ng-app="myData">
 		<div>
-			<!--描述：每个页面的头部 ************-->
+			<!--描述：每个页面的头部 **********************-->
 			<br/>
 			<div>
 				<div style="width: 1200px;height: 25px;margin: auto;padding:6px;">
-
 					<div class="row">
+
 						<div class="col-lg-1">
-							<a href="SearchHome.html">搜索引擎</a>
+							<a href="SearchHome.html" class="homefont" style="	text-decoration: none;">搜索引擎</a>
 						</div>
 
 						<div class="col-lg-5">
 							<iframe width="450" scrolling="no" height="18" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=1&icon=1&wind=0&num=2"></iframe>
 						</div>
 
-						<div class="col-lg-3">
-							<a href="SearchHome.html"> <button>测试按钮--首页</button></a>
-						</div>
-
-						<div class="col-lg-3">
-							<a href="SearchResult.html"> <button>测试按钮--搜索结果页</button></a>
-						</div>
-
 					</div>
+
 				</div>
 				<hr />
 			</div>
-			<!--********************************-->
+			<!--**********头部结束********************************-->
 
 			<div style='min-height: 800px;width: 1200px;margin: auto;' }>
 
@@ -137,7 +140,7 @@
 
 					<p>福利：有妹子！有妹子！有妹子！</p>
 
-					<a href="Map.html">查看地图</a>
+					<a href="Map.html" target="_blank">查看地图</a>
 				</div>
 
 				<hr/>
@@ -158,7 +161,8 @@
 				<hr />
 				<div style='width: 180px;font-size: 14px;margin: auto;'>
 					<p>
-						<a href="https://user.qzone.qq.com/1031778303/infocenter?ptsig=6tGcnT*5hLdAql-GuoSgXYjnL9PwD5oz6i3yFS0ruqY_" style='color: #333399'>
+						<a href="https://user.qzone.qq.com/1031778303/infocenter?ptsig=6tGcnT*5hLdAql-GuoSgXYjnL9PwD5oz6i3yFS0ruqY_" style='text-decoration: none;color: #333399'
+						 target="_blank">
 						@郭润和
 						</a> &nbsp;搜索引擎&nbsp;毕业设计
 					</p>️
